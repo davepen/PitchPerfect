@@ -1,40 +1,33 @@
-//
-//  ViewController.swift
-//  Pitch Perfect
-//
-//  Created by davepen on 3/4/15.
-//  Copyright (c) 2015 penaskovic. All rights reserved.
-//
-
 import UIKit
 
-class ViewController: UIViewController
+class RecordSoundsViewController: UIViewController
 {
     @IBOutlet weak var recordingLabel: UILabel!
     @IBOutlet weak var stopButton: UIButton!
-    
+    @IBOutlet weak var recordButton: UIButton!
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning()
+    override func viewWillAppear(animated: Bool)
     {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        recordButton.enabled = true;
+        recordingLabel.hidden = true;
+        stopButton.hidden = true;
     }
-
-
+    
     @IBAction func recordAudio(sender: UIButton)
     {
-        println("recording in progress")
+        recordButton.enabled = false;
         recordingLabel.hidden = false;
         stopButton.hidden = false;
     }
     
     @IBAction func stopAudio(sender: UIButton)
     {
+        recordButton.enabled = true;
         recordingLabel.hidden = true;
         stopButton.hidden = true;
     }
