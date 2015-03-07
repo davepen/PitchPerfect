@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE0F414D1AAAB8D200B4A925 /* RecordedAudo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0F414C1AAAB8D200B4A925 /* RecordedAudo.swift */; };
 		EE1E94C41AA9742C00324340 /* PlaySoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1E94C31AA9742C00324340 /* PlaySoundsViewController.swift */; };
 		EE1E94C61AA9778200324340 /* movie_quote.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EE1E94C51AA9778200324340 /* movie_quote.mp3 */; };
 		EE2B270E1AA8309B00B49AAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2B270D1AA8309B00B49AAA /* AppDelegate.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EE0F414C1AAAB8D200B4A925 /* RecordedAudo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordedAudo.swift; sourceTree = "<group>"; };
 		EE1E94C31AA9742C00324340 /* PlaySoundsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySoundsViewController.swift; sourceTree = "<group>"; };
 		EE1E94C51AA9778200324340 /* movie_quote.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = movie_quote.mp3; sourceTree = "<group>"; };
 		EE2B27081AA8309B00B49AAA /* Pitch Perfect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pitch Perfect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +90,7 @@
 				EE2B27141AA8309B00B49AAA /* Images.xcassets */,
 				EE2B27161AA8309B00B49AAA /* LaunchScreen.xib */,
 				EE2B270B1AA8309B00B49AAA /* Supporting Files */,
+				EE0F414C1AAAB8D200B4A925 /* RecordedAudo.swift */,
 			);
 			path = "Pitch Perfect";
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			files = (
 				EE2B27101AA8309B00B49AAA /* RecordSoundsViewController.swift in Sources */,
 				EE1E94C41AA9742C00324340 /* PlaySoundsViewController.swift in Sources */,
+				EE0F414D1AAAB8D200B4A925 /* RecordedAudo.swift in Sources */,
 				EE2B270E1AA8309B00B49AAA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

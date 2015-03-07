@@ -3,22 +3,25 @@ import AVFoundation
 
 class PlaySoundsViewController: UIViewController
 {
-    var audioPlayer:AVAudioPlayer!
-    
+    var audioPlayer: AVAudioPlayer!
+    var receivedAudio: RecordedAudio!
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
-        if let path = NSBundle.mainBundle().pathForResource("movie_quote", ofType:"mp3")
-        {
-            let nsurl = NSURL.fileURLWithPath(path)
-            audioPlayer = AVAudioPlayer(contentsOfURL: nsurl!, error: nil)
-            audioPlayer.enableRate = true;
-        }
-        else
-        {
-            println("the file path is empty")
-        }
+//        if let path = NSBundle.mainBundle().pathForResource("movie_quote", ofType:"mp3")
+//        {
+//            let nsurl = NSURL.fileURLWithPath(path)
+//
+//        }
+//        else
+//        {
+//            println("the file path is empty")
+//        }
+        
+        audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.fileAtPathUrl!, error: nil)
+        audioPlayer.enableRate = true;
     }
 
     @IBAction func playSlow(sender: UIButton)
@@ -35,6 +38,11 @@ class PlaySoundsViewController: UIViewController
         audioPlayer.rate = 2.0
         audioPlayer.currentTime = 0.0
         audioPlayer.play()
+    }
+    
+    @IBAction func playChipmunk(sender: UIButton)
+    {
+        
     }
     
     @IBAction func playStop(sender: UIButton)

@@ -40,7 +40,6 @@
                                 </state>
                                 <connections>
                                     <action selector="stopAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kcb-ES-oHy"/>
-                                    <segue destination="DBB-zX-M7Z" kind="show" id="Uwy-jh-v12"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -89,6 +88,7 @@
                         <outlet property="recordButton" destination="lxN-hr-T2z" id="wTj-Cy-cg8"/>
                         <outlet property="recordingLabel" destination="HYr-aR-FvO" id="FBK-m4-Dqr"/>
                         <outlet property="stopButton" destination="9cL-2d-cds" id="IpV-nb-fUG"/>
+                        <segue destination="DBB-zX-M7Z" kind="show" identifier="stopRecording" id="s8Z-8L-2lR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -134,9 +134,20 @@
                                     <action selector="playStop:" destination="DBB-zX-M7Z" eventType="touchUpInside" id="P44-rs-t2j"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UdU-iB-ZRA">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="chipmunk-1">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playChipmunk:" destination="DBB-zX-M7Z" eventType="touchUpInside" id="kSq-QO-inJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="UdU-iB-ZRA" firstAttribute="leading" secondItem="lKK-0V-isk" secondAttribute="leadingMargin" constant="21" id="6Ag-Nm-mI6"/>
+                            <constraint firstItem="UdU-iB-ZRA" firstAttribute="top" secondItem="a1J-JD-xh9" secondAttribute="bottom" constant="130" id="9fw-qM-I7P"/>
                             <constraint firstItem="a1J-JD-xh9" firstAttribute="leading" secondItem="lKK-0V-isk" secondAttribute="leadingMargin" constant="21" id="Yia-RO-R1c"/>
                             <constraint firstItem="e3f-WY-B6b" firstAttribute="top" secondItem="lkQ-eB-lLu" secondAttribute="bottom" constant="114" id="hi9-rK-RTD"/>
                             <constraint firstItem="a1J-JD-xh9" firstAttribute="top" secondItem="oBt-Ig-gco" secondAttribute="bottom" constant="27" id="jMr-fQ-ZLA"/>
@@ -149,12 +160,15 @@
                                 <exclude reference="a1J-JD-xh9"/>
                                 <exclude reference="Rrx-mw-ELa"/>
                                 <exclude reference="lkQ-eB-lLu"/>
+                                <exclude reference="UdU-iB-ZRA"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="Yia-RO-R1c"/>
                                 <exclude reference="jMr-fQ-ZLA"/>
                                 <exclude reference="n9v-uL-NMl"/>
                                 <exclude reference="x04-ES-GFI"/>
+                                <exclude reference="6Ag-Nm-mI6"/>
+                                <exclude reference="9fw-qM-I7P"/>
                                 <exclude reference="v0A-Iw-b5T"/>
                                 <exclude reference="hi9-rK-RTD"/>
                             </mask>
@@ -164,12 +178,15 @@
                                 <include reference="a1J-JD-xh9"/>
                                 <include reference="Rrx-mw-ELa"/>
                                 <include reference="lkQ-eB-lLu"/>
+                                <include reference="UdU-iB-ZRA"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="Yia-RO-R1c"/>
                                 <include reference="jMr-fQ-ZLA"/>
                                 <include reference="n9v-uL-NMl"/>
                                 <include reference="x04-ES-GFI"/>
+                                <include reference="6Ag-Nm-mI6"/>
+                                <include reference="9fw-qM-I7P"/>
                                 <include reference="v0A-Iw-b5T"/>
                                 <include reference="hi9-rK-RTD"/>
                             </mask>
@@ -200,6 +217,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chipmunk-1" width="100" height="100"/>
         <image name="fast" width="100" height="100"/>
         <image name="microphone" width="100" height="100"/>
         <image name="slow" width="100" height="100"/>
