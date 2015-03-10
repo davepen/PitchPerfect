@@ -3,32 +3,34 @@ import AVFoundation
 
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate
 {
-    @IBOutlet weak var recordingLabel: UILabel!
-    @IBOutlet weak var stopButton: UIButton!
-    @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var recordingLabel:UILabel!
+    @IBOutlet weak var stopButton:UIButton!
+    @IBOutlet weak var recordButton:UIButton!
 
-    var audioRecorder: AVAudioRecorder!
-    var recordedAudio: RecordedAudio!
+    var audioRecorder:AVAudioRecorder!
+    var recordedAudio:RecordedAudio!
     
+    let SEGUE_IDENTIFIER = "stopRecording"
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
     }
 
-    override func viewWillAppear(animated: Bool)
+    override func viewWillAppear(animated:Bool)
     {
-        recordButton.enabled = true;
+        recordButton.enabled = true
+        stopButton.hidden = true
         recordingLabel.text = "Tap to Record"
-        recordingLabel.textColor = UIColor.blueColor();
-        stopButton.hidden = true;
+        recordingLabel.textColor = UIColor.blueColor()
     }
     
-    @IBAction func recordAudio(sender: UIButton)
+    @IBAction func recordAudio(sender:UIButton)
     {
-        recordButton.enabled = false;
+        recordButton.enabled = false
+        stopButton.hidden = false
         recordingLabel.text = "Recording"
-        recordingLabel.textColor = UIColor.redColor();
-        stopButton.hidden = false;
+        recordingLabel.textColor = UIColor.redColor()
         
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
         
@@ -40,51 +42,48 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate
         let filePath = NSURL.fileURLWithPathComponents(pathArray)
         
         var session = AVAudioSession.sharedInstance()
-        session.setCategory(AVAudioSessionCategoryPlayAndRecord, error: nil)
+        session.setCategory(AVAudioSessionCategoryPlayAndRecord, error:nil)
         
-        audioRecorder = AVAudioRecorder(URL: filePath, settings: nil, error: nil)
-        audioRecorder.delegate = self;
+        audioRecorder = AVAudioRecorder(URL: filePath, settings: nil, error:nil)
+        audioRecorder.delegate = self
         audioRecorder.meteringEnabled = true
-        audioRecorder.prepareToRecord();
+        audioRecorder.prepareToRecord()
         audioRecorder.record()
     }
     
-    @IBAction func stopAudio(sender: UIButton)
+    @IBAction func stopAudio(sender:UIButton)
     {
-        recordButton.enabled = true;
-        stopButton.hidden = true;
+        recordButton.enabled = true
+        stopButton.hidden = true
         audioRecorder.stop()
         var audioSession = AVAudioSession.sharedInstance()
         audioSession.setActive(false, error: nil)
     }
     
-    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool)
+    func audioRecorderDidFinishRecording(recorder:AVAudioRecorder!, successfully flag:Bool)
     {
         if (flag)
         {
             recordedAudio = RecordedAudio(url:recorder.url)
-            self.performSegueWithIdentifier("stopRecording", sender: recordedAudio)
+            self.performSegueWithIdentifier(SEGUE_IDENTIFIER, sender:recordedAudio)
         }
         else
         {
-            println("failed to record audio")
             recordButton.enabled = true
             stopButton.hidden = true
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    override func prepareForSegue(segue:UIStoryboardSegue, sender:AnyObject?)
     {
-        if (segue.identifier == "stopRecording")
+        if (segue.identifier == SEGUE_IDENTIFIER)
         {
             let playSoundViewController:PlaySoundsViewController = segue.destinationViewController as PlaySoundsViewController
             let data = sender as RecordedAudio
-            playSoundViewController.receivedAudio = data;
+            playSoundViewController.receivedAudio = data
         }
 
     }
-
-
     
 }
 

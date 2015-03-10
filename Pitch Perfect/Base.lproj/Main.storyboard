@@ -48,7 +48,7 @@
                             <constraint firstAttribute="centerX" secondItem="9cL-2d-cds" secondAttribute="centerX" id="LwP-q0-fHq"/>
                             <constraint firstItem="HYr-aR-FvO" firstAttribute="top" secondItem="lxN-hr-T2z" secondAttribute="bottom" constant="8" id="P5Z-lS-PVu"/>
                             <constraint firstAttribute="centerY" secondItem="lxN-hr-T2z" secondAttribute="centerY" id="bXR-QV-I6t"/>
-                            <constraint firstItem="9cL-2d-cds" firstAttribute="top" secondItem="HYr-aR-FvO" secondAttribute="bottom" constant="163" id="qqm-7E-tg4"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="9cL-2d-cds" secondAttribute="bottom" constant="90" id="jrY-pD-6Bh"/>
                             <constraint firstAttribute="centerX" secondItem="HYr-aR-FvO" secondAttribute="centerX" constant="-0.5" id="r2X-b1-orI"/>
                             <constraint firstAttribute="centerX" secondItem="lxN-hr-T2z" secondAttribute="centerX" id="reF-l3-Gm9"/>
                         </constraints>
@@ -59,12 +59,12 @@
                                 <exclude reference="9cL-2d-cds"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="bXR-QV-I6t"/>
+                                <exclude reference="reF-l3-Gm9"/>
                                 <exclude reference="P5Z-lS-PVu"/>
                                 <exclude reference="r2X-b1-orI"/>
                                 <exclude reference="LwP-q0-fHq"/>
-                                <exclude reference="qqm-7E-tg4"/>
-                                <exclude reference="bXR-QV-I6t"/>
-                                <exclude reference="reF-l3-Gm9"/>
+                                <exclude reference="jrY-pD-6Bh"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -74,12 +74,12 @@
                                 <include reference="9cL-2d-cds"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="bXR-QV-I6t"/>
+                                <include reference="reF-l3-Gm9"/>
                                 <include reference="P5Z-lS-PVu"/>
                                 <include reference="r2X-b1-orI"/>
                                 <include reference="LwP-q0-fHq"/>
-                                <include reference="qqm-7E-tg4"/>
-                                <include reference="bXR-QV-I6t"/>
-                                <include reference="reF-l3-Gm9"/>
+                                <include reference="jrY-pD-6Bh"/>
                             </mask>
                         </variation>
                     </view>
@@ -113,7 +113,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="playSlow:" destination="DBB-zX-M7Z" eventType="touchUpInside" id="gav-JU-Fm5"/>
                                     <action selector="playSlowAudio:" destination="DBB-zX-M7Z" eventType="touchUpInside" id="vpL-yS-G6j"/>
                                 </connections>
                             </button>
@@ -123,7 +122,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="playFast:" destination="DBB-zX-M7Z" eventType="touchUpInside" id="2NP-ek-kUR"/>
                                     <action selector="playFastAudio:" destination="DBB-zX-M7Z" eventType="touchUpInside" id="qRd-RD-FhD"/>
                                 </connections>
                             </button>
@@ -133,7 +131,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="playStop:" destination="DBB-zX-M7Z" eventType="touchUpInside" id="P44-rs-t2j"/>
+                                    <action selector="stopAudio:" destination="DBB-zX-M7Z" eventType="touchUpInside" id="ufj-Kz-ckh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UdU-iB-ZRA">
@@ -142,7 +140,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="playChipmunk:" destination="DBB-zX-M7Z" eventType="touchUpInside" id="kSq-QO-inJ"/>
                                     <action selector="playChipmunkAudio:" destination="DBB-zX-M7Z" eventType="touchUpInside" id="GO5-vX-aX2"/>
                                 </connections>
                             </button>
@@ -152,7 +149,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="playDarthVader:" destination="DBB-zX-M7Z" eventType="touchUpInside" id="EJt-oR-Vcp"/>
                                     <action selector="playDarthVaderAudio:" destination="DBB-zX-M7Z" eventType="touchUpInside" id="ZSt-ha-LCY"/>
                                 </connections>
                             </button>
@@ -226,7 +222,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4nV-kX-4sk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.35596596209999998" green="0.57613430960000001" blue="0.78082540759999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.203269597" green="0.31879530659999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

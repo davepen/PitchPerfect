@@ -39,7 +39,7 @@ class PlaySoundsViewController : UIViewController
         playAudioWithPitch(-1000)
     }
     
-    @IBAction func playStop(sender:UIButton)
+    @IBAction func stopAudio(sender:UIButton)
     {
         audioPlayer.stop()
     }
@@ -67,7 +67,7 @@ class PlaySoundsViewController : UIViewController
         audioEngine.connect(audioPlayerNode, to:changePitchEffect, format:nil)
         audioEngine.connect(changePitchEffect, to:audioEngine.outputNode, format:nil)
         
-        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler:nil)
+        audioPlayerNode.scheduleFile(audioFile, atTime:nil, completionHandler:nil)
         audioEngine.startAndReturnError(nil)
         
         audioPlayerNode.play()
