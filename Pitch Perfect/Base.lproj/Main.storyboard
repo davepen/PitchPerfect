@@ -114,6 +114,7 @@
                                 </state>
                                 <connections>
                                     <action selector="playSlow:" destination="DBB-zX-M7Z" eventType="touchUpInside" id="gav-JU-Fm5"/>
+                                    <action selector="playSlowAudio:" destination="DBB-zX-M7Z" eventType="touchUpInside" id="vpL-yS-G6j"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rrx-mw-ELa">
@@ -123,6 +124,7 @@
                                 </state>
                                 <connections>
                                     <action selector="playFast:" destination="DBB-zX-M7Z" eventType="touchUpInside" id="2NP-ek-kUR"/>
+                                    <action selector="playFastAudio:" destination="DBB-zX-M7Z" eventType="touchUpInside" id="qRd-RD-FhD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lkQ-eB-lLu">
@@ -141,6 +143,7 @@
                                 </state>
                                 <connections>
                                     <action selector="playChipmunk:" destination="DBB-zX-M7Z" eventType="touchUpInside" id="kSq-QO-inJ"/>
+                                    <action selector="playChipmunkAudio:" destination="DBB-zX-M7Z" eventType="touchUpInside" id="GO5-vX-aX2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PIM-YR-dXj">
@@ -150,16 +153,17 @@
                                 </state>
                                 <connections>
                                     <action selector="playDarthVader:" destination="DBB-zX-M7Z" eventType="touchUpInside" id="EJt-oR-Vcp"/>
+                                    <action selector="playDarthVaderAudio:" destination="DBB-zX-M7Z" eventType="touchUpInside" id="ZSt-ha-LCY"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.35596596209999998" green="0.57613430960000001" blue="0.78082540759999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="UdU-iB-ZRA" firstAttribute="leading" secondItem="lKK-0V-isk" secondAttribute="leadingMargin" constant="21" id="6Ag-Nm-mI6"/>
                             <constraint firstItem="UdU-iB-ZRA" firstAttribute="top" secondItem="a1J-JD-xh9" secondAttribute="bottom" constant="130" id="9fw-qM-I7P"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PIM-YR-dXj" secondAttribute="trailing" constant="21" id="UsG-74-Fi2"/>
                             <constraint firstItem="a1J-JD-xh9" firstAttribute="leading" secondItem="lKK-0V-isk" secondAttribute="leadingMargin" constant="21" id="Yia-RO-R1c"/>
-                            <constraint firstItem="e3f-WY-B6b" firstAttribute="top" secondItem="lkQ-eB-lLu" secondAttribute="bottom" constant="114" id="hi9-rK-RTD"/>
+                            <constraint firstItem="e3f-WY-B6b" firstAttribute="top" secondItem="lkQ-eB-lLu" secondAttribute="bottom" constant="90" id="hi9-rK-RTD"/>
                             <constraint firstItem="a1J-JD-xh9" firstAttribute="top" secondItem="oBt-Ig-gco" secondAttribute="bottom" constant="27" id="jMr-fQ-ZLA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Rrx-mw-ELa" secondAttribute="trailing" constant="21" id="n9v-uL-NMl"/>
                             <constraint firstItem="PIM-YR-dXj" firstAttribute="top" secondItem="Rrx-mw-ELa" secondAttribute="bottom" constant="130" id="tca-6I-H5n"/>
@@ -222,6 +226,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4nV-kX-4sk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.35596596209999998" green="0.57613430960000001" blue="0.78082540759999997" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
