@@ -18,14 +18,16 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate
     override func viewWillAppear(animated: Bool)
     {
         recordButton.enabled = true;
-        recordingLabel.hidden = true;
+        recordingLabel.text = "Tap to Record"
+        recordingLabel.textColor = UIColor.blueColor();
         stopButton.hidden = true;
     }
     
     @IBAction func recordAudio(sender: UIButton)
     {
         recordButton.enabled = false;
-        recordingLabel.hidden = false;
+        recordingLabel.text = "Recording"
+        recordingLabel.textColor = UIColor.redColor();
         stopButton.hidden = false;
         
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
@@ -36,7 +38,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate
         let recordingName = formatter.stringFromDate(currentDateTime) + ".wav"
         let pathArray = [dirPath, recordingName]
         let filePath = NSURL.fileURLWithPathComponents(pathArray)
-        println(filePath)
         
         var session = AVAudioSession.sharedInstance()
         session.setCategory(AVAudioSessionCategoryPlayAndRecord, error: nil)
@@ -51,7 +52,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate
     @IBAction func stopAudio(sender: UIButton)
     {
         recordButton.enabled = true;
-        recordingLabel.hidden = true;
         stopButton.hidden = true;
         audioRecorder.stop()
         var audioSession = AVAudioSession.sharedInstance()
@@ -62,9 +62,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate
     {
         if (flag)
         {
-            recordedAudio = RecordedAudio()
-            recordedAudio.fileAtPathUrl = recorder.url;
-            recordedAudio.title = recorder.url.lastPathComponent;
+            recordedAudio = RecordedAudio(url:recorder.url)
             self.performSegueWithIdentifier("stopRecording", sender: recordedAudio)
         }
         else
