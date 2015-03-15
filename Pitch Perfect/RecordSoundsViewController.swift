@@ -1,7 +1,7 @@
 import UIKit
 import AVFoundation
 
-class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate
+class RecordSoundsViewController : UIViewController, AVAudioRecorderDelegate
 {
     @IBOutlet weak var recordingLabel:UILabel!
     @IBOutlet weak var stopButton:UIButton!
@@ -44,7 +44,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate
         var session = AVAudioSession.sharedInstance()
         session.setCategory(AVAudioSessionCategoryPlayAndRecord, error:nil)
         
-        audioRecorder = AVAudioRecorder(URL: filePath, settings: nil, error:nil)
+        audioRecorder = AVAudioRecorder(URL:filePath, settings:nil, error:nil)
         audioRecorder.delegate = self
         audioRecorder.meteringEnabled = true
         audioRecorder.prepareToRecord()

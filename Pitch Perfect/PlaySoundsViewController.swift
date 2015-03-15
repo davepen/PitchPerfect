@@ -7,11 +7,17 @@ class PlaySoundsViewController : UIViewController
     var receivedAudio:RecordedAudio!
     var audioEngine:AVAudioEngine!
     var audioFile:AVAudioFile!
+
+    @IBOutlet weak var reverbButton:UIButton!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
+        reverbButton.frame = CGRectMake(0, 0, 100.0, 100.0)
+        reverbButton.layer.borderColor = UIColor.blackColor().CGColor
+        reverbButton.layer.borderWidth = 1.0
+        
         audioPlayer = AVAudioPlayer(contentsOfURL:receivedAudio.fileAtPathUrl!, error:nil)
         audioPlayer.enableRate = true;
         
@@ -19,6 +25,26 @@ class PlaySoundsViewController : UIViewController
         audioFile = AVAudioFile(forReading:receivedAudio.fileAtPathUrl, error:nil)
     }
 
+    @IBAction func playReverbAudio(sender:UIButton)
+    {
+        stopAndReset()
+        
+        var audioPlayerNode = AVAudioPlayerNode()
+        audioEngine.attachNode(audioPlayerNode)
+        
+        var audioUnitReverb = AVAudioUnitReverb()
+        audioUnitReverb.wetDryMix = 75.0;
+        audioEngine.attachNode(audioUnitReverb)
+        
+        audioEngine.connect(audioPlayerNode, to:audioUnitReverb, format:nil)
+        audioEngine.connect(audioUnitReverb, to:audioEngine.outputNode, format:nil)
+        
+        audioPlayerNode.scheduleFile(audioFile, atTime:nil, completionHandler:nil)
+        audioEngine.startAndReturnError(nil)
+        
+        audioPlayerNode.play()
+    }
+    
     @IBAction func playSlowAudio(sender:UIButton)
     {
         playAudioWithRate(0.5)
@@ -41,7 +67,7 @@ class PlaySoundsViewController : UIViewController
     
     @IBAction func stopAudio(sender:UIButton)
     {
-        audioPlayer.stop()
+        stopAndReset()
     }
 
     func playAudioWithRate(rate:Float)
