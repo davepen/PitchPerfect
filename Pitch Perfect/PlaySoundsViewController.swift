@@ -70,6 +70,11 @@ class PlaySoundsViewController : UIViewController
         stopAndReset()
     }
 
+    /**
+        Plays the recorded audio with the given rate.
+    
+        :param: rate The playback rate for the audio player
+    */
     func playAudioWithRate(rate:Float)
     {
         stopAndReset()
@@ -79,6 +84,11 @@ class PlaySoundsViewController : UIViewController
         audioPlayer.play()
     }
     
+    /**
+        Plays the recorded audio with the given pitch
+    
+        :param: pitch The amount by which the input signal is pitch shifted.
+    */
     func playAudioWithPitch(pitch:Float)
     {
         stopAndReset()
@@ -98,7 +108,10 @@ class PlaySoundsViewController : UIViewController
         
         audioPlayerNode.play()
     }
-    
+
+    /**
+        Stop and reset the audio player and engine
+    */
     func stopAndReset()
     {
         audioPlayer.stop()

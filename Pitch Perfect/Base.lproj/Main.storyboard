@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="YTx-ym-IOb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="YTx-ym-IOb">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -190,19 +190,19 @@
                                 <exclude reference="uP4-df-6kC"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Yia-RO-R1c"/>
-                                <exclude reference="jMr-fQ-ZLA"/>
-                                <exclude reference="6Ag-Nm-mI6"/>
-                                <exclude reference="hT6-uX-Jyf"/>
-                                <exclude reference="n9v-uL-NMl"/>
-                                <exclude reference="x04-ES-GFI"/>
+                                <exclude reference="uL4-F1-zEG"/>
                                 <exclude reference="UsG-74-Fi2"/>
                                 <exclude reference="nI0-0z-bmk"/>
+                                <exclude reference="n9v-uL-NMl"/>
+                                <exclude reference="x04-ES-GFI"/>
+                                <exclude reference="6Ag-Nm-mI6"/>
+                                <exclude reference="hT6-uX-Jyf"/>
+                                <exclude reference="Yia-RO-R1c"/>
+                                <exclude reference="jMr-fQ-ZLA"/>
+                                <exclude reference="dxx-Wz-W4c"/>
                                 <exclude reference="9YK-bm-mIJ"/>
                                 <exclude reference="Ed2-qF-3eA"/>
                                 <exclude reference="bI3-6X-yRk"/>
-                                <exclude reference="dxx-Wz-W4c"/>
-                                <exclude reference="uL4-F1-zEG"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -215,19 +215,19 @@
                                 <include reference="uP4-df-6kC"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Yia-RO-R1c"/>
-                                <include reference="jMr-fQ-ZLA"/>
-                                <include reference="6Ag-Nm-mI6"/>
-                                <include reference="hT6-uX-Jyf"/>
-                                <include reference="n9v-uL-NMl"/>
-                                <include reference="x04-ES-GFI"/>
+                                <include reference="uL4-F1-zEG"/>
                                 <include reference="UsG-74-Fi2"/>
                                 <include reference="nI0-0z-bmk"/>
+                                <include reference="n9v-uL-NMl"/>
+                                <include reference="x04-ES-GFI"/>
+                                <include reference="6Ag-Nm-mI6"/>
+                                <include reference="hT6-uX-Jyf"/>
+                                <include reference="Yia-RO-R1c"/>
+                                <include reference="jMr-fQ-ZLA"/>
+                                <include reference="dxx-Wz-W4c"/>
                                 <include reference="9YK-bm-mIJ"/>
                                 <include reference="Ed2-qF-3eA"/>
                                 <include reference="bI3-6X-yRk"/>
-                                <include reference="dxx-Wz-W4c"/>
-                                <include reference="uL4-F1-zEG"/>
                             </mask>
                         </variation>
                     </view>
