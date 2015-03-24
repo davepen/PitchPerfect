@@ -12,11 +12,6 @@ class RecordSoundsViewController : UIViewController, AVAudioRecorderDelegate
     
     let SEGUE_IDENTIFIER = "stopRecording"
 
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
-    }
-
     override func viewWillAppear(animated:Bool)
     {
         recordButton.enabled = true
@@ -60,6 +55,12 @@ class RecordSoundsViewController : UIViewController, AVAudioRecorderDelegate
         audioSession.setActive(false, error: nil)
     }
     
+    /**
+        Called by the system when a recording is stopped or has finished due to reaching its time limit.
+    
+        :param: recorder The audio recorder that has finished recording.
+        :param: flag     YES on successful completion of recording; NO if recording stopped because of an audio encoding error.
+    */
     func audioRecorderDidFinishRecording(recorder:AVAudioRecorder!, successfully flag:Bool)
     {
         if (flag)
@@ -86,4 +87,3 @@ class RecordSoundsViewController : UIViewController, AVAudioRecorderDelegate
     }
     
 }
-

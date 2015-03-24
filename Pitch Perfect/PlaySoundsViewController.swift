@@ -25,6 +25,55 @@ class PlaySoundsViewController : UIViewController
         audioFile = AVAudioFile(forReading:receivedAudio.fileAtPathUrl, error:nil)
     }
 
+    /**
+    Plays the recorded audio with the given rate.
+    
+    :param: rate The playback rate for the audio player
+    */
+    func playAudioWithRate(rate:Float)
+    {
+        stopAndReset()
+        
+        audioPlayer.rate = rate
+        audioPlayer.currentTime = 0.0
+        audioPlayer.play()
+    }
+    
+    /**
+    Plays the recorded audio with the given pitch
+    
+    :param: pitch The amount by which the input signal is pitch shifted.
+    */
+    func playAudioWithPitch(pitch:Float)
+    {
+        stopAndReset()
+        
+        var audioPlayerNode = AVAudioPlayerNode()
+        audioEngine.attachNode(audioPlayerNode)
+        
+        var changePitchEffect = AVAudioUnitTimePitch()
+        changePitchEffect.pitch = pitch
+        audioEngine.attachNode(changePitchEffect)
+        
+        audioEngine.connect(audioPlayerNode, to:changePitchEffect, format:nil)
+        audioEngine.connect(changePitchEffect, to:audioEngine.outputNode, format:nil)
+        
+        audioPlayerNode.scheduleFile(audioFile, atTime:nil, completionHandler:nil)
+        audioEngine.startAndReturnError(nil)
+        
+        audioPlayerNode.play()
+    }
+    
+    /**
+    Stop and reset the audio player and engine
+    */
+    func stopAndReset()
+    {
+        audioPlayer.stop()
+        audioEngine.stop()
+        audioEngine.reset()
+    }
+    
     @IBAction func playReverbAudio(sender:UIButton)
     {
         stopAndReset()
@@ -68,54 +117,5 @@ class PlaySoundsViewController : UIViewController
     @IBAction func stopAudio(sender:UIButton)
     {
         stopAndReset()
-    }
-
-    /**
-        Plays the recorded audio with the given rate.
-    
-        :param: rate The playback rate for the audio player
-    */
-    func playAudioWithRate(rate:Float)
-    {
-        stopAndReset()
-
-        audioPlayer.rate = rate
-        audioPlayer.currentTime = 0.0
-        audioPlayer.play()
-    }
-    
-    /**
-        Plays the recorded audio with the given pitch
-    
-        :param: pitch The amount by which the input signal is pitch shifted.
-    */
-    func playAudioWithPitch(pitch:Float)
-    {
-        stopAndReset()
-
-        var audioPlayerNode = AVAudioPlayerNode()
-        audioEngine.attachNode(audioPlayerNode)
-        
-        var changePitchEffect = AVAudioUnitTimePitch()
-        changePitchEffect.pitch = pitch
-        audioEngine.attachNode(changePitchEffect)
-        
-        audioEngine.connect(audioPlayerNode, to:changePitchEffect, format:nil)
-        audioEngine.connect(changePitchEffect, to:audioEngine.outputNode, format:nil)
-        
-        audioPlayerNode.scheduleFile(audioFile, atTime:nil, completionHandler:nil)
-        audioEngine.startAndReturnError(nil)
-        
-        audioPlayerNode.play()
-    }
-
-    /**
-        Stop and reset the audio player and engine
-    */
-    func stopAndReset()
-    {
-        audioPlayer.stop()
-        audioEngine.stop()
-        audioEngine.reset()
     }
 }
